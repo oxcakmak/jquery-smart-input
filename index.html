@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <title>smart pin input</title>
+
+  <link rel="stylesheet" media="screen" href="https://cpwebassets.codepen.io/assets/fullpage/fullpage-e7501c25084e5f502d1074671fca0382a09ba24d5cdc8869fdd4967e40fdce14.css" />
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+
+
+  <title>smart pin input</title>
+
+  <style>
+    html { font-size: 15px; }
+    html, body { margin: 0; padding: 0; min-height: 100%; }
+    body { height:100%; display: flex; flex-direction: column; }
+    .referer-warning {
+      background: black;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      padding: 0.75em;
+      color: white;
+      text-align: center;
+      font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, system-ui, Sans-Serif;
+      line-height: 1.2;
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .referer-warning span { font-family: initial; }
+    .referer-warning h1 { font-size: 1.2rem; margin: 0; }
+    .referer-warning a { color: #56bcf9; }
+  </style>
+</head>
+
+<body class="">
+  <div class="referer-warning">
+    <h1><span>⚠️</span> Do not enter passwords or personal information on this page. <span>⚠️</span></h1>
+      This is a code demo posted by a web developer on <a href="https://codepen.io">CodePen</a>.
+    <br />
+    A referer from CodePen is required to render this page view, and your browser is not sending one (<a href="https://blog.codepen.io/2017/10/05/regarding-referer-headers/" target="_blank" rel="noreferrer noopener">more details</a>).</h1>
+  </div>
+
+  <div id="result-iframe-wrap" role="main">
+    <iframe
+      id="result"
+      srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot; >
+
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  
+
+    <link rel=&quot;apple-touch-icon&quot; type=&quot;image/png&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png&quot; />
+
+    <meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;CodePen&quot;>
+
+    <link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot; />
+
+    <link rel=&quot;mask-icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg&quot; color=&quot;#111&quot; />
+
+
+
+  
+    <script src=&quot;https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js&quot;></script>
+
+
+  <title>smart pin input</title>
+
+    <link rel=&quot;canonical&quot; href=&quot;https://codepen.io/oxcakmak/pen/QWeBKWj&quot;>
+  
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
+  
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate=&quot;no&quot;>
+  <div class=&quot;input-group input-group-lg&quot;>
+              <input type=&quot;text&quot; class=&quot;form-control input-lg text-center digit-input&quot; maxlength=&quot;1&quot;>
+              <input type=&quot;text&quot; class=&quot;form-control input-lg text-center digit-input&quot; maxlength=&quot;1&quot;>
+              <input type=&quot;text&quot; class=&quot;form-control input-lg text-center digit-input&quot; maxlength=&quot;1&quot;>
+              <input type=&quot;text&quot; class=&quot;form-control input-lg text-center digit-input&quot; maxlength=&quot;1&quot;>
+              <input type=&quot;text&quot; class=&quot;form-control input-lg text-center digit-input&quot; maxlength=&quot;1&quot;>
+              <input type=&quot;text&quot; class=&quot;form-control input-lg text-center digit-input&quot; maxlength=&quot;1&quot;>
+            </div>
+<button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg btnSumbit&quot;>Sumbit</button>
+<span class=&quot;result&quot;>-</span>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+      <script id=&quot;rendered-js&quot; >
+$(document).on(&quot;keydown&quot;, &quot;.digit-input&quot;, function (e) {
+  const currentInput = $(this);
+  const key = e.keyCode;
+
+  // Allow only numbers (48-57), backspace (8), delete (46), arrow left (37), and arrow right (39)
+  if ((key < 48 || key > 57) &amp;&amp; ![8, 46, 37, 39].includes(key)) {
+    e.preventDefault();
+    return false;
+  }
+
+  // Number keys (0-9): set value and move to next input
+  if (key >= 48 &amp;&amp; key <= 57) {
+    currentInput.val(String.fromCharCode(key)); // Set typed number
+    const nextInput = currentInput.next(&quot;.digit-input&quot;);
+    if (nextInput.length) nextInput.focus(); // Move focus to next input if available
+    e.preventDefault();
+  }
+  // Backspace (8): delete current value, move to previous if empty
+  else if (key === 8) {
+      if (currentInput.val() === &quot;&quot;) {
+        const previousInput = currentInput.prev(&quot;.digit-input&quot;);
+        if (previousInput.length) previousInput.focus().val(&quot;&quot;); // Clear previous input and focus
+      } else {
+        currentInput.val(&quot;&quot;); // Clear current input if not empty
+      }
+      e.preventDefault();
+    }
+    // Delete key (46): delete one step to the right, then move leftward step-by-step if current input is empty
+    else if (key === 46) {
+        let nextInput = currentInput;
+
+        // Delete current input and shift leftward values to the right
+        while (nextInput.length) {if (window.CP.shouldStopExecution(0)) break;
+          const followingInput = nextInput.next(&quot;.digit-input&quot;);
+          nextInput.val(followingInput.length ? followingInput.val() : &quot;&quot;); // Shift left or clear last
+          nextInput = followingInput;
+        }
+
+        // Move focus leftward and delete one step at a time if input is empty after cascading rightward delete
+        window.CP.exitedLoop(0);if (currentInput.val() === &quot;&quot;) {
+          let prevInput = currentInput.prev(&quot;.digit-input&quot;);
+          if (prevInput.length) {
+            prevInput.focus().val(&quot;&quot;); // Clear and focus previous input, stop at first empty
+          }
+        }
+
+        e.preventDefault();
+      }
+      // Left arrow (37): move focus to previous input
+      else if (key === 37) {
+          const previousInput = currentInput.prev(&quot;.digit-input&quot;);
+          if (previousInput.length) previousInput.focus();
+          e.preventDefault();
+        }
+        // Right arrow (39): move focus to next input
+        else if (key === 39) {
+            const nextInput = currentInput.next(&quot;.digit-input&quot;);
+            if (nextInput.length) nextInput.focus();
+            e.preventDefault();
+          }
+
+  // Check if all inputs are filled
+  if ($(&quot;.digit-input&quot;).toArray().every(input => $(input).val() !== &quot;&quot;)) {
+    $(&quot;.digit-input&quot;).blur(); // Unfocus all inputs if they are all completed
+  }
+});
+
+function getKeyCode() {
+  let values = [];
+
+  // Iterate over each input with the class &quot;digit-input&quot;
+  $(&quot;.digit-input&quot;).each(function () {
+    const value = $(this).val(); // Get the value of the current input
+    values.push(value); // Add the value to the array
+  });
+
+  return values.join(&quot;&quot;); // Return the array of values
+}
+
+// Event listener for a button (replace #submitButton with your actual button ID)
+$(document).on(&quot;click&quot;, &quot;.btnSumbit&quot;, function () {
+  var lastInput = &quot;&quot;;
+
+  // Check if all inputs are filled before proceeding
+  const allFilled = $(&quot;.digit-input&quot;).toArray().every(input => $(input).val() !== &quot;&quot;);
+  if (!allFilled) {
+    // If not all inputs are filled, focus on the last input
+    lastInput = $(&quot;.digit-input&quot;).last();
+    lastInput.focus();
+  } else {
+    /*
+    // If you get an error (e.g. the code is invalid) you can focus on the input again.
+    lastInput = $(&quot;.digit-input&quot;).last();
+    lastInput.focus();
+    */
+    // Proceed with your logic if all inputs are filled
+    // For example, submit a form or validate inputs
+    console.log(&quot;All inputs filled, proceed with submission.&quot;);
+  }
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
+"
+      sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups-to-escape-sandbox allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer *; bluetooth *; camera *; encrypted-media *; display-capture *; geolocation *; gyroscope *; microphone *; midi *; clipboard-read *; clipboard-write *; web-share *; serial *; xr-spatial-tracking *" allowTransparency="true"
+      allowpaymentrequest="true" allowfullscreen="true" class="result-iframe">
+      </iframe>
+  </div>
+
+</body>
+
+</html>
